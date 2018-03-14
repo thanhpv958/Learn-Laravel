@@ -65,3 +65,8 @@ Route::prefix('admin')->group(function () {
         return 'user admin route';
     });
 });
+
+// goi controller
+Route::get('testController', 'MyController@testController')->name('testController');
+Route::get('testControllerPara/{name}', 'MyController@testControllerPara');
+Route::get('testRedirect', 'MyController@testRedirect');
