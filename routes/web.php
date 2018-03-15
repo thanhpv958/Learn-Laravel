@@ -70,3 +70,12 @@ Route::prefix('admin')->group(function () {
 Route::get('testController', 'MyController@testController')->name('testController');
 Route::get('testControllerPara/{name}', 'MyController@testControllerPara');
 Route::get('testRedirect', 'MyController@testRedirect');
+
+// request
+Route::get('getURL', 'MyController@getURL');
+
+Route::get('getForm', function() {
+    return view('postForm');
+});
+
+Route::post('postForm', 'MyController@postForm')->name('postForm');
