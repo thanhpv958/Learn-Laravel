@@ -79,3 +79,8 @@ Route::get('getForm', function() {
 });
 
 Route::post('postForm', 'MyController@postForm')->name('postForm');
+
+// set get cookie
+
+Route::get('setCookie', 'MyController@setCookie');
+Route::get('getCookie', 'MyController@getCookie');

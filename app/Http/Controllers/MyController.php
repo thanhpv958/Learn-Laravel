@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class MyController extends BaseController {
 
@@ -34,5 +35,15 @@ class MyController extends BaseController {
         } else {
             echo 'no';
         }
+    }
+
+    public function setCookie() {
+        $response = new Response();
+        $response->cookie('Course', 'Laravel', 1);
+        return $response;
+    }
+
+    public function getCookie(Request $request) {
+        return $request->cookie('Course');
     }
 }
