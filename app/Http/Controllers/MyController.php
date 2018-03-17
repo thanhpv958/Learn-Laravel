@@ -60,4 +60,10 @@ class MyController extends BaseController {
         }
         
     }
+
+    public function getJSON() {
+        $arr = ['Laravel' => 'ABC', 'CI', 'Zend'];
+        $ABC = response()->json($arr);
+        var_dump($arr);
+    }
 }
