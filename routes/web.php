@@ -94,3 +94,9 @@ Route::post('postFile', 'MyController@postFile')->name('postFile');
 
 //json
 Route::get('getJSON', 'MyController@getJSON');
+
+// view
+Route::get('view1/{t}', 'MyController@view1' );
+
+// view share
+View::share('keyShare', 'valueShare');

@@ -66,4 +66,8 @@ class MyController extends BaseController {
         $ABC = response()->json($arr);
         var_dump($arr);
     }
+
+    public function view1($t) {
+        return view('view.view1', ['t' => $t]);
+    }
 }
