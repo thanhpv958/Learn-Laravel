@@ -100,3 +100,8 @@ Route::get('view1/{t}', 'MyController@view1' );
 
 // view share
 View::share('keyShare', 'valueShare');
+
+// blade template
+Route::get('bladeMaster', function() {
+    return view('page.laravel');
+});
