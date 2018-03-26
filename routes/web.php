@@ -105,3 +105,45 @@ View::share('keyShare', 'valueShare');
 Route::get('bladeMaster', function() {
     return view('page.laravel');
 });
+
+// create table database by route
+Route::get('createLoaiSP', function() {
+    Schema::create('loaisanpham', function($table) {
+        $table->increments('id');
+        $table->string('tensp');
+    });
+
+    echo 'Ok';
+});
+
+// model
+Route::get('model/sanpham/save/{t}/{g}',function($t, $g) {
+    $sanpham = new App\SanPham();
+    $sanpham->ten = $t;
+    $sanpham->gia = $g;
+    $sanpham->save();
+
+    echo 'Đã save()';
+});
+
+Route::get('model/sanpham/all', function() {
+    $sanpham = App\SanPham::all()->toJson();
+    echo '<pre>';
+    var_dump($sanpham);
+    echo '</pre>';
+
+});
+
+Route::get('model/sanpham/ten', function() {
+    $sanpham = App\SanPham::all()->toArray();
+    foreach ($sanpham as $value) {
+        echo '<pre>';
+        var_dump($value['ten']);
+        echo '</pre>';
+    }
+});
+
+Route::get('model/sanpham/delete', function() {
+    $sanpham =  App\SanPham::find(1);
+    $sanpham->delete();
+});
