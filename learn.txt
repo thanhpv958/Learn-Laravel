@@ -4,3 +4,8 @@
 2. Req vs Res
  - Request là các dữ liệu của người dùng được gửi trên route, và truyền cho controller xử lí các request đấy.
  - Response là các dữ liệu mà controller đã xử lí trả về cho người dùng thông qua view
+
+3. Middleware
+ - Middleware trong laravel là các class dùng cho việc filter các HTTP request trước khi vào ứng dụng
+ ex: khi người dùng gửi request lên thông qua route thì Middleware sẽ kiểm tra xem route này có đủ điều kiện đi tiếp hay k ? nếu đủ đk
+    thì Middleware sẽ cho route đi tiếp vào controller mà route đó muốn.

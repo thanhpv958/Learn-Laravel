@@ -147,3 +147,13 @@ Route::get('model/sanpham/delete', function() {
     $sanpham =  App\SanPham::find(1);
     $sanpham->delete();
 });
+
+
+// Middleware
+Route::get('diem', function() {
+    echo 'diem';
+})->middleware('Mymiddle');
+
+Route::get('loiDiem', function() {
+    echo 'loi diem';
+})->name('loiDiem');
