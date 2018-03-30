@@ -157,3 +157,11 @@ Route::get('diem', function() {
 Route::get('loiDiem', function() {
     echo 'loi diem';
 })->name('loiDiem');
+
+
+// Auth
+Route::get('dangnhap', function() {
+    return view('login.dangnhap');
+});
+
+Route::post('login', 'AuthController@dangnhap')->name('dangnhap');
