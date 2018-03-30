@@ -165,3 +165,9 @@ Route::get('dangnhap', function() {
 });
 
 Route::post('login', 'AuthController@dangnhap')->name('dangnhap');
+
+Route::get('logout', 'AuthController@logout');
+
+Route::get('thanhcong', function() {
+    return view('login.thanhcong');
+});
