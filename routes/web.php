@@ -171,3 +171,18 @@ Route::get('logout', 'AuthController@logout');
 Route::get('thanhcong', function() {
     return view('login.thanhcong');
 });
+
+// Relationship
+Route::get('getRSanPham', function() {
+    $data = App\SanPham::find(1)->loaiSanPham->toArray();
+    echo '<pre>';
+    var_dump($data);
+    echo '</pre>';
+});
+
+Route::get('getRLoaiSanPham', function() {
+    $data = App\LoaiSanPham::find(1)->sanpham->toArray();
+    echo '<pre>';
+    var_dump($data);
+    echo '</pre>';
+});
