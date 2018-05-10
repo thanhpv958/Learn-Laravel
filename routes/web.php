@@ -190,3 +190,34 @@ Route::get('/', function () {
 Route::get('testView', function() {
     return view('admin.theloai.add');
 });
+
+// Route group for admin
+Route::prefix('admin')->group (function() {
+    Route::prefix('theloai')->group (function () {
+        Route::get('list', 'TheLoaiController@listTheLoai');
+        Route::get('add', 'TheLoaiController@addTheLoai');
+        Route::get('edit', 'TheLoaiController@editTheLoai');
+        Route::get('delete', 'TheLoaiController@deleteTheLoai');
+    });
+
+    Route::prefix('loaitin')->group (function () {
+        Route::get('list', 'LoaiTinController@listLoaiTin');
+        Route::get('add', 'LoaiTinController@addLoaiTin');
+        Route::get('edit', 'LoaiTinController@editLoaiTin');
+        Route::get('delete', 'LoaiTinController@deleteLoaiTin');
+    });
+
+    Route::prefix('tintuc')->group (function () {
+        Route::get('list', 'TinTucController@listTinTuc');
+        Route::get('add', 'TinTucController@addTinTuc');
+        Route::get('edit', 'TinTucController@editTinTuc');
+        Route::get('delete', 'TinTucController@deleteTinTuc');
+    });
+
+    Route::prefix('user')->group (function () {
+        Route::get('list', 'UserController@listUser');
+        Route::get('add', 'UserController@addUser');
+        Route::get('edit', 'UserController@editUser');
+        Route::get('delete', 'UserController@deleteUser');
+    });
+});
