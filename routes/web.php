@@ -221,3 +221,14 @@ Route::prefix('admin')->group (function() {
         Route::get('delete', 'UserController@deleteUser');
     });
 });
+
+// Test Relationship Model
+Route::get('testRM', function() {
+    $data = App\TheLoai::find(1)->loaiTin->toArray();
+    foreach($data as $value) {
+        //echo $value->TieuDe . '<br/>';
+        echo '<pre>';
+        var_dump($value);
+        echo '</pre>';
+    }
+});
