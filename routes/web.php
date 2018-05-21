@@ -194,7 +194,7 @@ Route::get('testView', function() {
 // Route group for admin
 Route::prefix('admin')->group (function() {
     Route::prefix('theloai')->group (function () {
-        Route::get('list', 'TheLoaiController@listTheLoai');
+        Route::get('list', 'TheLoaiController@getListTheLoai');
         Route::get('add', 'TheLoaiController@addTheLoai');
         Route::get('edit', 'TheLoaiController@editTheLoai');
         Route::get('delete', 'TheLoaiController@deleteTheLoai');
