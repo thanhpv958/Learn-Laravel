@@ -195,7 +195,10 @@ Route::get('testView', function() {
 Route::prefix('admin')->group (function() {
     Route::prefix('theloai')->group (function () {
         Route::get('list', 'TheLoaiController@getListTheLoai');
-        Route::get('add', 'TheLoaiController@addTheLoai');
+
+        Route::get('add', 'TheLoaiController@getAddTheLoai');
+        Route::post('add', 'TheLoaiController@postAddTheLoai');
+
         Route::get('edit', 'TheLoaiController@editTheLoai');
         Route::get('delete', 'TheLoaiController@deleteTheLoai');
     });
