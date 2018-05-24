@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // simple route
 // Route::get('/learn', function() {
@@ -191,23 +191,35 @@ Route::get('testView', function() {
     return view('admin.theloai.add');
 });
 
+Route::get('/', function () {
+    return view('admin.layout.index');
+});
+
 // Route group for admin
 Route::prefix('admin')->group (function() {
     Route::prefix('theloai')->group (function () {
-        Route::get('list', 'TheLoaiController@getListTheLoai');
+        Route::get('list', 'TheLoaiController@getList');
 
-        Route::get('add', 'TheLoaiController@getAddTheLoai');
-        Route::post('add', 'TheLoaiController@postAddTheLoai');
+        Route::get('add', 'TheLoaiController@getAdd');
+        Route::post('add', 'TheLoaiController@postAdd');
 
-        Route::get('edit', 'TheLoaiController@editTheLoai');
-        Route::get('delete', 'TheLoaiController@deleteTheLoai');
+        Route::get('edit/{id}', 'TheLoaiController@getEdit')->where(['id' => '[0-9]+']);
+        Route::post('edit/{id}', 'TheLoaiController@postEdit')->where(['id' => '[0-9]+']);
+
+        Route::get('delete/{id}', 'TheLoaiController@getDelete')->where(['id' => '[0-9]+']);
+
     });
 
     Route::prefix('loaitin')->group (function () {
-        Route::get('list', 'LoaiTinController@listLoaiTin');
-        Route::get('add', 'LoaiTinController@addLoaiTin');
-        Route::get('edit', 'LoaiTinController@editLoaiTin');
-        Route::get('delete', 'LoaiTinController@deleteLoaiTin');
+        Route::get('list', 'LoaiTinController@getList');
+
+        Route::get('add', 'LoaiTinController@getAdd');
+        Route::post('add', 'LoaiTinController@postAdd');
+
+        Route::get('edit/{id}', 'LoaiTinController@getEdit')->where('id', '[0-9]+');
+        Route::post('edit/{id}', 'LoaiTinController@postEdit')->where('id', '[0-9]+');
+
+        Route::get('delete/{id}', 'LoaiTinController@getDelete')->where(['id' => '[0-9]+']);
     });
 
     Route::prefix('tintuc')->group (function () {
