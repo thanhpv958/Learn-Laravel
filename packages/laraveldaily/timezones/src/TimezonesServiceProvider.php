@@ -13,7 +13,13 @@ class TimezonesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // load
+        $this->loadViewsFrom(__DIR__.'/views', 'timezones');
+
+        // publish
+        $this->publishes([
+                __DIR__.'/views' => base_path('resources/views/laraveldaily/timezones'),
+            ]);
     }
 
     /**

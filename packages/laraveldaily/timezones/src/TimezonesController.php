@@ -7,8 +7,10 @@ use Carbon\Carbon;
 class TimezonesController extends Controller
 {
   
-    public function index($timezone)
+    public function index($timezone = null)
     {
-        echo Carbon::now($timezone)->toDateTimeString();
+        $currentTime = $timezone ? Carbon::now($timezone)->toDateTimeString() : Carbon::now()->toDateTimeString();
+        
+        return view('timezones::time', compact('currentTime'));
     }
 }
