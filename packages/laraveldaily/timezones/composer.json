@@ -1,0 +1,11 @@
+{
+    "name": "thanhphan/timezones",
+    "description": "Demo-package to show time",
+    "authors": [
+        {
+            "name": "thanhpv958",
+            "email": "thanhpv958@gmail.com"
+        }
+    ],
+    "require": {}
+}

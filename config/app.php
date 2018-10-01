@@ -150,7 +150,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Laraveldaily\Timezones\TimezonesServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */
